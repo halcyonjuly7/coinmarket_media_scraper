@@ -39,7 +39,7 @@ def scrape_media_urls(driver: webdriver.Chrome,
                     twitter_widget = driver.find_elements_by_xpath(".//iframe[contains(@id, 'twitter-widget')]")
                     if twitter_widget:
                         driver.switch_to.frame(twitter_widget[0])
-                        twitter_handle = driver.find_elements_by_xpath(".//a[contains(@href, 'publish.twitter.com')]")[0]
+                        twitter_handle = driver.find_elements_by_xpath(".//a[contains(., 'View on Twitter')]")[0]
                         scraped_coins[coin["id"]]["twitter"] = twitter_handle.get_attribute("href")
             break
         except (IndexError):
